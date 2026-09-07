@@ -62,6 +62,7 @@ docs/
 
 examples/
 
+```
 
 ## Reporting workflow
 
@@ -84,6 +85,7 @@ archive + report generation
       |
       v
 desktop viewing / review
+```
 The reporting layer is designed to preserve event ordering and provide a readable record of what was observed during an authorized test session.
 
 ## Privacy and safety
@@ -113,7 +115,6 @@ Useful upstream resources:
 
 This showcase should be read as a separate presentation of development and observability work around that project, not as a replacement for or claim of ownership over the upstream project.
 
-This showcase should be read as a separate presentation of development and observability work around that project, not as a replacement for or claim of ownership over the upstream project.
 
 ## License
 
