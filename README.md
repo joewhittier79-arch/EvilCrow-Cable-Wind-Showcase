@@ -37,7 +37,7 @@ The desktop control center provides a graphical entry point for launching and re
 #### Session Logs
 
 <p align="center">
-  <img src="images/logs-window.png" alt="Evil Crow session logs window" width="760">
+  <img src="images/logs-window.png" alt="Evil Crow session logs window" width="950">
 </p>
 
 The logs view provides a simple way to browse recorded Evil Crow server and session activity.
@@ -45,7 +45,7 @@ The logs view provides a simple way to browse recorded Evil Crow server and sess
 #### Report Overview
 
 <p align="center">
-  <img src="images/report-overview-redacted.png" alt="Redacted Evil Crow report overview" width="760">
+  <img src="images/report-overview-redacted.png" alt="Redacted Evil Crow report overview" width="950">
 </p>
 
 A generated session report summarizes the observed run context and captured reporting data. Environment-specific identifiers are redacted in this public screenshot.
@@ -53,7 +53,7 @@ A generated session report summarizes the observed run context and captured repo
 #### Command and Timeline Detail
 
 <p align="center">
-  <img src="images/report-command-details-redacted.png" alt="Redacted Evil Crow report command details" width="760">
+  <img src="images/report-command-details-redacted.png" alt="Redacted Evil Crow report command details" width="950">
 </p>
 
 The reporting layer reconstructs event order and command-level activity while preserving the distinction between device-side execution and observed recipient-side evidence. Sensitive test content is redacted from the public screenshot.
@@ -61,7 +61,7 @@ The reporting layer reconstructs event order and command-level activity while pr
 #### Final Assessment
 
 <p align="center">
-  <img src="images/report-assessment.png" alt="Evil Crow report final assessment" width="760">
+  <img src="images/report-assessment.png" alt="Evil Crow report final assessment" width="950">
 </p>
 
 The final report section presents evidence classifications, recipient-side assessment, and a concise summary of what was actually observed during the session.
