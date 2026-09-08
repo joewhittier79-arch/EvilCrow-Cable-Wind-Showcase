@@ -170,7 +170,7 @@ buttons = [
     ("View Reports", lambda: show_files(
         "Evil Crow Reports",
         ARCHIVES,
-        "REPORT.txt"
+        "**/REPORT.txt"
     )),
     ("View Logs", lambda: show_files(
         "Evil Crow Logs",
