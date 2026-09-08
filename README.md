@@ -1,5 +1,10 @@
 # Evil Crow Cable Wind — Reporting & Observability Showcase
 
+<p align="center">
+  <img src="images/evil-crow-icon.png" alt="Evil Crow Cable Wind artwork" width="420">
+</p>
+
+
 This repository is a public showcase of reporting, observability, session-archiving, and desktop tooling work built around the **Evil Crow Cable Wind** project.
 
 The original Evil Crow Cable Wind project and its firmware are by **Joel Serna Moreno**. This repository does not claim ownership of the upstream project. Upstream-derived components remain subject to their original license and attribution requirements.
@@ -18,6 +23,48 @@ Highlights include:
 - A desktop control-center launcher.
 - A timestamped payload/session viewer.
 - Separation of device, server, and reporting responsibilities.
+
+### Evil Crow Control Center
+
+<p align="center">
+  <img src="images/control-center.png" alt="Evil Crow Cable Wind Control Center" width="760">
+</p>
+
+The desktop control center provides a graphical entry point for launching and reviewing the Evil Crow Cable Wind reporting environment.
+
+### Visual walkthrough
+
+#### Session Logs
+
+<p align="center">
+  <img src="images/logs-window.png" alt="Evil Crow session logs window" width="760">
+</p>
+
+The logs view provides a simple way to browse recorded Evil Crow server and session activity.
+
+#### Report Overview
+
+<p align="center">
+  <img src="images/report-overview-redacted.png" alt="Redacted Evil Crow report overview" width="760">
+</p>
+
+A generated session report summarizes the observed run context and captured reporting data. Environment-specific identifiers are redacted in this public screenshot.
+
+#### Command and Timeline Detail
+
+<p align="center">
+  <img src="images/report-command-details-redacted.png" alt="Redacted Evil Crow report command details" width="760">
+</p>
+
+The reporting layer reconstructs event order and command-level activity while preserving the distinction between device-side execution and observed recipient-side evidence. Sensitive test content is redacted from the public screenshot.
+
+#### Final Assessment
+
+<p align="center">
+  <img src="images/report-assessment.png" alt="Evil Crow report final assessment" width="760">
+</p>
+
+The final report section presents evidence classifications, recipient-side assessment, and a concise summary of what was actually observed during the session.
 
 ## Public-source scope
 
