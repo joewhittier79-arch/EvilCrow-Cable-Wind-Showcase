@@ -1,13 +1,14 @@
 # Evil Crow Cable Wind — Reporting & Observability Showcase
 
-<p align="center">
-  <img src="images/evil-crow-icon.png" alt="Evil Crow Cable Wind artwork" width="420">
-</p>
-
-
 This repository is a public showcase of reporting, observability, session-archiving, and desktop tooling work built around the **Evil Crow Cable Wind** project.
 
-The original Evil Crow Cable Wind project and its firmware are by **Joel Serna Moreno**. This repository does not claim ownership of the upstream project. Upstream-derived components remain subject to their original license and attribution requirements.
+**Evil Crow Cable Wind was created by Joel Serna Moreno.** This repository is a separate public showcase of reporting, observability, session-archiving, and desktop tooling developed around the upstream **Evil Crow Cable Wind** project.
+
+Joel Serna Moreno on GitHub: [joelsernamoreno](https://github.com/joelsernamoreno)
+
+This showcase claims **no ownership** of Joel Serna Moreno's original Evil Crow Cable Wind project, firmware, original web interface, or other upstream work. Those components remain the work of **Joel Serna Moreno** and remain subject to the upstream project's original license and attribution requirements.
+
+Original upstream project: [Joel Serna Moreno — Evil Crow Cable Wind](https://github.com/joelsernamoreno/EvilCrowCable-Wind)
 
 ## What this showcase adds
 
@@ -23,14 +24,6 @@ Highlights include:
 - A desktop control-center launcher.
 - A timestamped payload/session viewer.
 - Separation of device, server, and reporting responsibilities.
-
-### Evil Crow Control Center
-
-<p align="center">
-  <img src="images/control-center.png" alt="Evil Crow Cable Wind Control Center" width="760">
-</p>
-
-The desktop control center provides a graphical entry point for launching and reviewing the Evil Crow Cable Wind reporting environment.
 
 ### Visual walkthrough
 
@@ -137,11 +130,17 @@ The reporting layer is designed to preserve event ordering and provide a readabl
 
 ## Device Web Interface
 
-The Evil Crow Cable Wind includes a local web interface used during development and testing to review device status and interact with the device.
+The **Evil Crow Cable Wind web interface** shown below originates from the upstream **Evil Crow Cable Wind** project created by **Joel Serna Moreno**. The original implementation, firmware, and web interface are part of Joel Serna Moreno's upstream project; this showcase does not claim ownership of them.
 
-The screenshot below shows the interface as used in the lab environment. Network-specific and private values have been redacted for the public showcase.
+The Evil Crow Cable Wind web interface is served locally by each individual Evil Crow device. It is not a single static page containing identical values for every user. What appears in the interface reflects the configuration and current runtime state of that particular device and environment.
 
-The web interface is served locally by the Evil Crow device. For the original implementation and upstream project details, see the [Evil Crow Cable Wind repository](https://github.com/joelsernamoreno/EvilCrow-Cable-Wind).
+For that reason, information such as the connected Wi-Fi network, device IP address, VPN IP address, uptime, CPU temperature, memory statistics, connection state, and other runtime values can differ from one user, device, network, or session to another.
+
+The screenshot below shows the Evil Crow Cable Wind web interface as it appeared in this project's authorized lab environment. Network-specific and environment-specific values have been deliberately redacted before publication.
+
+For the original Evil Crow Cable Wind web interface, firmware, documentation, and upstream implementation, see **Joel Serna Moreno's original project**:
+
+[Joel Serna Moreno — Evil Crow Cable Wind](https://github.com/joelsernamoreno/EvilCrowCable-Wind)
 
 ![Evil Crow Cable Wind web interface](docs/images/evilcrow-web-interface.png)
 
@@ -162,16 +161,22 @@ Use this project only with hardware, systems, networks, and recipients for which
 
 ## Upstream project
 
-This showcase is based on the original [Evil Crow Cable Wind project](https://github.com/joelsernamoreno/EvilCrow-Cable-Wind) by **Joel Serna Moreno**.
+This showcase is built around the original **Evil Crow Cable Wind** project created by **Joel Serna Moreno**.
+
+**Original creator:** Joel Serna Moreno  
+**Original upstream project:** [Evil Crow Cable Wind](https://github.com/joelsernamoreno/EvilCrowCable-Wind)
 
 Useful upstream resources:
 
-- [Original Evil Crow Cable Wind repository](https://github.com/joelsernamoreno/EvilCrow-Cable-Wind)
-- [Upstream repository history and releases](https://github.com/joelsernamoreno/EvilCrow-Cable-Wind/releases)
-- [Upstream project issues](https://github.com/joelsernamoreno/EvilCrow-Cable-Wind/issues)
+- [Joel Serna Moreno's original Evil Crow Cable Wind repository](https://github.com/joelsernamoreno/EvilCrowCable-Wind)
+- [Upstream repository history and releases](https://github.com/joelsernamoreno/EvilCrowCable-Wind/releases)
+- [Upstream project issues](https://github.com/joelsernamoreno/EvilCrowCable-Wind/issues)
 
-This showcase should be read as a separate presentation of development and observability work around that project, not as a replacement for or claim of ownership over the upstream project.
+The upstream **Evil Crow Cable Wind** project, its original firmware, its original web interface, and other upstream-derived components are credited to **Joel Serna Moreno**. This repository claims **no ownership** of those original upstream works.
 
+This repository should be understood as a separate showcase of development, testing, reporting, observability, session-archiving, and desktop-integration work built around the upstream project. It is not a replacement for the original Evil Crow Cable Wind repository and should not be interpreted as claiming authorship or ownership of Joel Serna Moreno's work.
+
+The upstream project identifies **Evil Crow Cable Wind © 2024 by Joel Serna Moreno** as licensed under **CC BY-NC-SA 4.0**. Upstream-derived material in this showcase remains subject to the original project's licensing and attribution requirements.
 
 ## License
 
