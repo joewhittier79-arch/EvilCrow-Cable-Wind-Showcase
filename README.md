@@ -1,14 +1,19 @@
 # Evil Crow Cable Wind — Reporting & Observability Showcase
 
+<p align="center">
+  <img src="images/evil-crow-icon.png" alt="Evil Crow Cable Wind artwork" width="420">
+</p>
+
+
 This repository is a public showcase of reporting, observability, session-archiving, and desktop tooling work built around the **Evil Crow Cable Wind** project.
 
 **Evil Crow Cable Wind was created by Joel Serna Moreno.** This repository is a separate public showcase of reporting, observability, session-archiving, and desktop tooling developed around the upstream **Evil Crow Cable Wind** project.
 
-Joel Serna Moreno on GitHub: [joelsernamoreno](https://github.com/joelsernamoreno)
+Joel Serna Moreno GitHub: https://github.com/joelsernamoreno
 
 This showcase claims **no ownership** of Joel Serna Moreno's original Evil Crow Cable Wind project, firmware, original web interface, or other upstream work. Those components remain the work of **Joel Serna Moreno** and remain subject to the upstream project's original license and attribution requirements.
 
-Original upstream project: [Joel Serna Moreno — Evil Crow Cable Wind](https://github.com/joelsernamoreno/EvilCrowCable-Wind)
+Original Evil Crow Cable Wind repository: https://github.com/joelsernamoreno/EvilCrowCable-Wind
 
 ## What this showcase adds
 
