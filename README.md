@@ -135,6 +135,16 @@ desktop viewing / review
 ```
 The reporting layer is designed to preserve event ordering and provide a readable record of what was observed during an authorized test session.
 
+## Device Web Interface
+
+The Evil Crow Cable Wind includes a local web interface used during development and testing to review device status and interact with the device.
+
+The screenshot below shows the interface as used in the lab environment. Network-specific and private values have been redacted for the public showcase.
+
+The web interface is served locally by the Evil Crow device. For the original implementation and upstream project details, see the [Evil Crow Cable Wind repository](https://github.com/joelsernamoreno/EvilCrow-Cable-Wind).
+
+![Evil Crow Cable Wind web interface](docs/images/evilcrow-web-interface.png)
+
 ## Privacy and safety
 
 Do not commit:
