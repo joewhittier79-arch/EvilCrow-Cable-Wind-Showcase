@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BASE="$HOME/EvilCrow-Server"
+BASE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 LOGS="$BASE/logs"
 ARCHIVES="$BASE/archives"
 SNAPSHOT="$BASE/.payloadlog-before-session"

@@ -21,3 +21,6 @@ build-*
 *.map
 desktop/*.local.*
 server/*.local.*
+
+.payloadlog-anchor
+.payloadlog-current

@@ -6,7 +6,7 @@ import tkinter as tk
 from tkinter import messagebox
 from pathlib import Path
 
-BASE = Path.home() / "EvilCrow-Server"
+BASE = Path(__file__).resolve().parent.parent / "server"
 ARCHIVES = BASE / "archives"
 LOGS = BASE / "logs"
 LAUNCHER = BASE / "evilcrow-master.sh"
