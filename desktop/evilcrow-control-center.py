@@ -6,10 +6,11 @@ import tkinter as tk
 from tkinter import messagebox
 from pathlib import Path
 
-BASE = Path(__file__).resolve().parent.parent / "server"
+BASE = Path(__file__).resolve().parents[1]
 ARCHIVES = BASE / "archives"
-LOGS = BASE / "logs"
-LAUNCHER = BASE / "evilcrow-master.sh"
+SESSIONS = BASE / "sessions"
+LAUNCHER = BASE / "src" / "backend" / "evilcrow-master.sh"
+ICON = BASE / "assets" / "evil-crow-icon.png"
 
 
 def open_path(path):
@@ -17,7 +18,11 @@ def open_path(path):
     if not path.exists():
         messagebox.showerror("Evil Crow", f"Not found:\n{path}")
         return
-    subprocess.Popen(["xdg-open", str(path)])
+
+    if path.is_file() and path.suffix.lower() in (".txt", ".log"):
+        subprocess.Popen(["mousepad", str(path)])
+    else:
+        subprocess.Popen(["xdg-open", str(path)])
 
 
 def start_listener():
@@ -27,7 +32,8 @@ def start_listener():
 
     subprocess.Popen(
         ["x-terminal-emulator", "-e", str(LAUNCHER)],
-        cwd=str(BASE)
+        cwd=str(BASE),
+        start_new_session=True
     )
 
 
@@ -83,7 +89,20 @@ def show_files(title, directory, pattern):
         files = []
 
     for item in files:
-        listbox.insert("end", item.name)
+        if item.name == "REPORT.txt":
+            archive_name = item.parent.name
+            stamp = archive_name.removeprefix("archive-")
+            if "_" in stamp:
+                date_part, time_part = stamp.split("_", 1)
+                display_name = f"Report — {date_part} {time_part.replace('-', ':')}"
+            else:
+                display_name = f"Report — {stamp}"
+        elif item.name in ("session.log", "received.log"):
+            display_name = item.parent.name
+        else:
+            display_name = item.name
+
+        listbox.insert("end", display_name)
 
     def open_selected(event=None):
         selection = listbox.curselection()
@@ -92,22 +111,64 @@ def show_files(title, directory, pattern):
         selected = files[selection[0]]
         open_path(selected)
 
+    def delete_selected():
+        selection = listbox.curselection()
+        if not selection:
+            messagebox.showinfo("Evil Crow", "Select an item to delete.")
+            return
+
+        selected = files[selection[0]]
+
+        if selected.name == "REPORT.txt":
+            target = selected.parent
+            description = f"archive folder:\n{target}"
+        else:
+            target = selected
+            description = f"file:\n{target}"
+
+        confirmed = messagebox.askyesno(
+            "Confirm Delete",
+            f"Permanently delete this {description}?\n\n"
+            "This action cannot be undone."
+        )
+        if not confirmed:
+            return
+
+        try:
+            if target.is_dir():
+                import shutil
+                shutil.rmtree(target)
+            else:
+                target.unlink()
+
+            files.pop(selection[0])
+            listbox.delete(selection[0])
+
+        except Exception as e:
+            messagebox.showerror(
+                "Evil Crow",
+                f"Could not delete:\n{target}\n\n{e}"
+            )
+
     listbox.bind("<Double-Button-1>", open_selected)
 
     button_frame = tk.Frame(window, bg=BG)
     button_frame.pack(pady=12)
 
-    for button_text, command, width in [
-        ("Open Selected", open_selected, 18),
-        ("Open Folder", lambda: open_path(directory), 18),
-        ("Close", window.destroy, 12),
-    ]:
+    buttons = [
+        ("Open Selected", open_selected, 18, PANEL),
+        ("Open Folder", lambda: open_path(directory), 18, PANEL),
+        ("Delete Selected", delete_selected, 18, RED),
+        ("Close", window.destroy, 12, PANEL),
+    ]
+
+    for button_text, command, width, button_bg in buttons:
         tk.Button(
             button_frame,
             text=button_text,
             width=width,
             command=command,
-            bg=PANEL,
+            bg=button_bg,
             fg=TEXT,
             activebackground=RED_DARK,
             activeforeground=TEXT,
@@ -119,7 +180,7 @@ def show_files(title, directory, pattern):
 
 root = tk.Tk()
 root.title("Evil Crow Cable Wind")
-root.geometry("620x560")
+root.geometry("620x690")
 root.resizable(False, False)
 
 BG = "#171717"
@@ -132,13 +193,22 @@ ENTRY_BG = "#2B2B2B"
 
 root.configure(bg=BG)
 
+if ICON.exists():
+    crow_icon = tk.PhotoImage(file=str(ICON))
+    root.iconphoto(True, crow_icon)
+    tk.Label(
+        root,
+        image=crow_icon,
+        bg=BG
+    ).pack(pady=(10, 2))
+
 tk.Label(
     root,
     text="EVIL CROW",
     font=("Sans", 23, "bold"),
     fg=TEXT,
     bg=BG
-).pack(pady=(22, 0))
+).pack(pady=(10, 0))
 
 tk.Label(
     root,
@@ -154,13 +224,13 @@ tk.Label(
     font=("Sans", 11),
     fg=MUTED,
     bg=BG
-).pack(pady=(0, 22))
+).pack(pady=(0, 12))
 
 tk.Frame(
     root,
     height=3,
     bg=RED
-).pack(fill="x", padx=70, pady=(0, 15))
+).pack(fill="x", padx=70, pady=(0, 10))
 
 button_frame = tk.Frame(root, bg=BG)
 button_frame.pack(fill="x", padx=70)
@@ -174,13 +244,13 @@ buttons = [
     )),
     ("View Logs", lambda: show_files(
         "Evil Crow Logs",
-        LOGS,
-        "*.log"
+        SESSIONS,
+        "**/session.log"
     )),
     ("View Received Data", lambda: show_files(
         "Received Data",
-        LOGS,
-        "received-*.log"
+        SESSIONS,
+        "**/received.log"
     )),
     ("Open Archives Folder", lambda: open_path(ARCHIVES)),
     ("Open Evil Crow Folder", lambda: open_path(BASE)),
@@ -201,28 +271,14 @@ for text, command in buttons:
         relief="flat",
         bd=0,
         cursor="hand2"
-    ).pack(fill="x", pady=5)
+    ).pack(fill="x", pady=4)
 
 tk.Frame(
     root,
     height=2,
     bg=RED_DARK
-).pack(fill="x", padx=70, pady=(15, 10))
+).pack(fill="x", padx=70, pady=(10, 6))
 
-tk.Button(
-    root,
-    text="Close",
-    command=root.destroy,
-    width=18,
-    height=2,
-    font=("Sans", 10),
-    bg=PANEL,
-    fg=MUTED,
-    activebackground=RED_DARK,
-    activeforeground=TEXT,
-    relief="flat",
-    bd=0,
-    cursor="hand2"
-).pack(pady=10)
+
 
 root.mainloop()

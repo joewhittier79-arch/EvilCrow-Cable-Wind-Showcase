@@ -137,9 +137,13 @@ The reporting layer is designed to preserve event ordering and provide a readabl
 
 The Evil Crow Control Center provides the main desktop workflow for starting a listener and reviewing the evidence produced by a session.
 
-Start by opening the Evil Crow Control Center and selecting **Start Listener**. Once the listener is running, open the Evil Crow device's local web interface in your browser and choose the payload you want to run. When the payload starts, the Control Center records the session automatically. After the device-side action finishes, return to the Control Center and use **View Reports** to read the finished report, **View Logs** to inspect the session log, or **View Received Data** to review any captured data. The **Open Archives Folder** button gives direct access to generated archives, while **Open Evil Crow Folder** opens the main project directory.
+<p align="center">
+  <img src="images/control-center.png" alt="Evil Crow Control Center main window" width="700">
+</p>
 
-The Control Center keeps detailed report, log, and received-data content behind explicit selections so the main screen remains clean and uncluttered.
+Start by opening the Evil Crow Control Center and selecting **Start Listener**. Once the listener is running, open the Evil Crow device's local web interface in your browser and choose the payload you want to run. When the payload starts, the Control Center records the session automatically. After the device-side action finishes, return to the Control Center and use **View Reports** to read the finished report or **View Logs** to inspect recorded session activity. The **Open Archives Folder** button gives direct access to generated archives and preserved recipient/session evidence, while **Open Evil Crow Folder** opens the main project directory.
+
+The Control Center keeps detailed report and log content behind explicit selections so the main screen remains clean and uncluttered.
 
 ## Device Web Interface
 
